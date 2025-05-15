@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.jpg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
   <link rel="stylesheet" href="style.css">
@@ -25,11 +25,12 @@
       background-image: url('public/grid.svg');
       background-color: #191a19;
     " class="text-white">
-  <header>
-    <nav class="flex max-sm:gap-4 sm:justify-between items-center px-4 py-6 text-white sm:px-8 lg:py-8 lg:px-28">
+  <header class="w-full">
+    <nav class="flex max-sm:gap-4 sm:justify-between items-center px-4 py-4 text-white sm:px-6 lg:py-4 lg:px-28">
       <!-- <MobileNav pathname="{pathname}" client:load /> -->
       <div class="relative sm:hidden" id="mobile-nav-container">
-        <button id="mobile-nav-toggle" class="h-auto w-14 flex justify-center rounded-full py-1.5 px-1 bg-[#16A34A] cursor-pointer"
+        <button id="mobile-nav-toggle"
+          class="h-auto w-14 flex justify-center rounded-full py-1.5 px-1 bg-[#16A34A] cursor-pointer"
           aria-label="Toggle Menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -616,6 +617,15 @@
       });
     });
 
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('fixed', 'top-0', 'bg-[#191a19]', 'z-[1000]');
+      } else {
+        header.classList.remove('fixed', 'top-0', 'bg-[#191a19]', 'z-[1000]');
+      }
+    });
   </script>
 </body>
 
