@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <link rel="stylesheet" href="style.css">
+  </link>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body style="
+      background-image: url('public/grid.svg');
+      background-color: #191a19;
+    " class="text-white">
+  <header>
+    <nav class="flex max-sm:gap-4 sm:justify-between items-center px-4 py-6 text-white sm:px-8 lg:py-8 lg:px-28">
+      <!-- <MobileNav pathname="{pathname}" client:load /> -->
+      <div class="relative sm:hidden" id="mobile-nav-container">
+        <button id="mobile-nav-toggle" class="h-auto w-14 flex justify-center rounded-full py-1.5 px-1 bg-[#16A34A] cursor-pointer"
+          aria-label="Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="21" x2="3" y1="6" y2="6" />
+            <line x1="15" x2="3" y1="12" y2="12" />
+            <line x1="17" x2="3" y1="18" y2="18" />
+          </svg>
+        </button>
+
+        <nav id="mobile-nav"
+          class="fixed left-5 mt-5 w-52 flex-col gap-3 rounded-md bg-white p-3 text-black opacity-0 pointer-events-none transition-all">
+          <a href="#about" class="block mobile-nav-link">About</a>
+          <a href="#project" class="block mobile-nav-link">Portofolio</a>
+          <a href="#experiences" class="block mobile-nav-link">Experiences</a>
+        </nav>
+      </div>
+      <h2 class="font-bold text-xl">
+        <a href="#" class="block">rezzawann</a>
+      </h2>
+      <div class="flex items-center gap-4 text-sm max-sm:hidden">
+        <a href="#about">About</a>
+        <a href="#project">Portofolio</a>
+        <a href="#experiences">Experiences</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mb-96" id="app">
+    <section class="mx-5 mt-8 sm:flex sm:items-center lg:mx-40 lg:mt-16 id=" about">
+      <div class="mt-8 sm:w-2/5 lg:mt-0">
+        <div class="flex w-full flex-col items-center justify-center text-white">
+          <img src="public/vite.svg" alt="Reza Setyawan Picture"
+            class="block aspect-square h-60 w-60 rounded-full border border-white object-cover p-1 scale-x-[-1]" />
+          <h2 class="mt-3 font-semibold">Reza Setyawan</h2>
+          <p class="text-center text-sm">
+            Fullstack Web Developer | Web Development Enthusiast
+          </p>
+
+          <div class="mt-4 flex items-center justify-center gap-4">
+            <a href="https://www.github.com/rezasetyawan" class="flex gap-2 !text-white" target="_blank"
+              rel="noopener noreferrer">
+              <svg viewBox="0 0 128 128" class="w-8">
+                <g fill="#ffffff"></g>
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff"
+                  d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z">
+                </path>
+                <path fill="#ffffff"
+                  d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0">
+                </path>
+                </g>
+              </svg>
+
+            </a>
+            <a href="https://www.linkedin.com/in/reza-setyawan" class="flex gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                alt="linkedin" class="w-8" />
+
+            </a>
+
+            <a href="mailto:setyawanreza960@gmail.com" class="flex gap-2" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 48 48">
+                <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
+                <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path>
+                <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17">
+                </polygon>
+                <path fill="#c62828"
+                  d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z">
+                </path>
+                <path fill="#fbc02d"
+                  d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z">
+                </path>
+              </svg>
+              <!-- <div class="text-sm max-sm:hidden">
+                  <h3>Linkedin</h3>
+                  <span class="text-gray-400">rezasetyawan</span>
+                </div> -->
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-white max-sm:mt-5 sm:w-3/5">
+        <h2 class="text-3xl font-semibold lg:text-4xl">
+          <!-- Your vision, my skills - let's build something -->
+
+          <span class="">About me</span>
+          <!-- that works for you -->
+        </h2>
+        <div class="mt-4 tracking-wide flex flex-col gap-4">
+          <p>
+            Hi, you can call me Reza, I'm a passionate Full-Stack Web
+            Developer who thrives on building engaging web experiences.
+          </p>
+          <p>
+            The web development field is a constant evolution, and that's what
+            excites me most. There's always a fresh challenge, a new
+            technology to delve into, which keeps the work not only
+            intellectually stimulating but also incredibly engaging.
+          </p>
+
+          <p>
+            I bring a versatile skillset to the table, proficient in both
+            front-end and back-end development. On the front-end, I can build
+            user-friendly interfaces with frameworks like React, Vue, and
+            libraries like Tailwind CSS. For back-end development, I leverage
+            frameworks like Nest.js and databases like PostgreSQL, ensuring
+            smooth functionality.
+          </p>
+          <!-- Hi, thank you for visiting my portfolio, don't hesitate to explore,
+            scroll now! or need help? contact me by looking at the bottom there
+            is my contact. -->
+        </div>
+        <!-- <a href="/portofolio"
+            ><button className="mt-4 rounded-full lg:mt-8">
+              See My Portofolio
+            </button></a
+          > -->
+      </div>
+    </section>
+    <section class="mx-5 mt-16 lg:mx-20 lg:mt-20" id="project">
+      <h2 class="text-center text-3xl font-semibold text-white">Project</h2>
+      <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+        <div
+          class="block rounded-md border border-green-200/30 bg-[#191A19] p-2 text-white shadow-sm shadow-green-200/10">
+          <img src="public/learningspace.png" class="rounded-sm" alt="project" />
+          <h2 class="mb-1 mt-2 text-center text-lg font-semibold">
+            Learningspace
+          </h2>
+        </div>
+        <div
+          class="block rounded-md border border-green-200/30 bg-[#191A19] p-2 text-white shadow-sm shadow-green-200/10">
+          <img src="public/fitness.png" class="rounded-sm" alt="project" />
+          <h2 class="mb-1 mt-2 text-center text-lg font-semibold">
+            Fitness
+          </h2>
+        </div>
+        <div
+          class="block rounded-md border border-green-200/30 bg-[#191A19] p-2 text-white shadow-sm shadow-green-200/10">
+          <img src="public/kelasgratis.png" class="rounded-sm" alt="project" />
+          <h2 class="mb-1 mt-2 text-center text-lg font-semibold">
+            Kelasgratis
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section class="mx-5 mt-16 lg:mx-20 lg:mt-20">
+      <h2 class="text-center text-3xl font-semibold text-white">Techstack</h2>
+      <div class="relative overflow-x-auto border shadow-md rounded-lg mt-6 lg:mt-12">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-xs text-white uppercase bg-[#191a19]">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                Type
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Technologies
+              </th>
+
+            </tr>
+          </thead>
+          <tbody class="bg-[#1b1c1b]">
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap">
+                FrontEnd
+              </th>
+              <td class="px-6 py-4 text-black">
+                <div
+                  class="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 min-[900px]:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 min-[1440px]:grid-cols-11">
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      HTML
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      CSS
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Javascript
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Typescript
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      React.js
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Next.js
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Vue.js
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Nuxt.js
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Astro
+                    </p>
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap">
+                BackEnd
+              </th>
+              <td class="px-6 py-4 text-black">
+                <div
+                  class="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 min-[900px]:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 min-[1440px]:grid-cols-11">
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Laravel
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Node.js
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Express.js
+                    </p>
+                  </div>
+
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Nest.js
+                    </p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap">
+                DBMS & ORM
+              </th>
+              <td class="px-6 py-4 text-black">
+                <div
+                  class="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 min-[900px]:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 min-[1440px]:grid-cols-11">
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      PostgreSQL
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://avatars.githubusercontent.com/u/108468352?s=200&v=4" class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Drizzle ORM
+                    </p>
+                  </div>
+                  <div class="flex aspect-square flex-col items-center justify-center rounded-md bg-white">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+                      class="mt-1 w-7" />
+
+                    <p class="mt-1.5 whitespace-nowrap text-center text-xs font-medium">
+                      Mysql
+                    </p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+    <section class="mx-5 mt-16 lg:mx-20 lg:mt-20" id="experiences">
+      <h2 class="text-center text-3xl font-semibold text-white">Experiences</h2>
+      <div class="relative overflow-x-auto border shadow-md rounded-lg mt-6 hidden lg:block lg:mt-12">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-xs text-white uppercase bg-[#191a19]">
+            <tr>
+              <th scope="col" class="px-6 py-3 w-[400px]">
+                Company and Position
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Responsibilities
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-[#1b1c1b]">
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white">
+                <div>
+                  <p>PT. Awan Network Indonesia (Anihost) - FullStack Web Developer</p>
+                  <p class="text-xs">May 2024 - present</p>
+                </div>
+              </th>
+              <td class="px-6 py-4 text-white">
+                <ul>
+                  <li class="list-inside list-disc">
+                    Develop a user friendly website that responsive across
+                    multiples screen size
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Collaborate with team to develop a website based on client
+                    requests
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Develop ecommerce using Vue js, Nuxt js, Tailwind CSS and
+                    Supabase
+                  </li>
+                  <li class="list-inside list-disc">
+                    Build an liquid vape ecommerce website, using Vue js and
+                    bootstrap
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white">
+                <div>
+                  <p>PT. Cipta Anya Nugraha Creative (CAN Creative) - Intern Frontend Web Developer</p>
+                  <p class="text-xs">July 2023 - December 2023</p>
+                </div>
+              </th>
+              <td class="px-6 py-4 text-white">
+                <ul>
+                  <li class="list-inside list-disc">
+                    Develop a user friendly website that responsive across
+                    multiples screen size
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Collaborate with team to develop a website based on client
+                    requests
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Develop ecommerce using Vue js, Nuxt js, Tailwind CSS and
+                    Supabase
+                  </li>
+                  <li class="list-inside list-disc">
+                    Build an liquid vape ecommerce website, using Vue js and
+                    bootstrap
+                  </li>
+                </ul>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="relative overflow-x-auto border shadow-md rounded-lg mt-6 lg:mt-12 lg:hidden">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-xs text-white uppercase bg-[#191a19]">
+            <tr>
+              <th scope="col" class="px-6 py-3 w-[400px]">
+                Posistion and Responsibilities
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-[#1b1c1b]">
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white">
+                <div>
+                  <p>PT. Awan Network Indonesia (Anihost) - FullStack Web Developer</p>
+                  <p class="text-xs">May 2024 - present</p>
+                </div>
+                <ul class="!text-slate-100 mt-2">
+                  <li class="list-inside list-disc">
+                    Develop a user friendly website that responsive across
+                    multiples screen size
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Collaborate with team to develop a website based on client
+                    requests
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Develop ecommerce using Vue js, Nuxt js, Tailwind CSS and
+                    Supabase
+                  </li>
+                  <li class="list-inside list-disc">
+                    Build an liquid vape ecommerce website, using Vue js and
+                    bootstrap
+                  </li>
+                </ul>
+              </th>
+            </tr>
+            <tr class="">
+              <th scope="row" class="px-6 py-4 font-medium text-white">
+                <div>
+                  <p>PT. Cipta Anya Nugraha Creative (CAN Creative) - Intern Frontend Web Developer</p>
+                  <p class="text-xs">July 2023 - December 2023</p>
+                </div>
+                <ul class="!text-slate-100 mt-2">
+                  <li class="list-inside list-disc">
+                    Develop a user friendly website that responsive across
+                    multiples screen size
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Collaborate with team to develop a website based on client
+                    requests
+                  </li>
+                  <li class="list-inside list-disc">
+                    Slicing UI/UX design into a website
+                  </li>
+                  <li class="list-inside list-disc">
+                    Develop ecommerce using Vue js, Nuxt js, Tailwind CSS and
+                    Supabase
+                  </li>
+                  <li class="list-inside list-disc">
+                    Build an liquid vape ecommerce website, using Vue js and
+                    bootstrap
+                  </li>
+                </ul>
+              </th>
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section class="mx-5 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12 lg:mx-20 lg:mt-20 xl:gap-16">
+      <div>
+        <h2 class="text-3xl font-semibold text-white">Soft Skills</h2>
+        <ul class="lg:whitespace-nowrap text-sm lg:text-base">
+          <li class="list-inside list-disc">
+            Teamwork
+          </li>
+          <li class="list-inside list-disc">
+            Reliable
+          </li>
+          <li class="list-inside list-disc">
+            Responsible
+          </li>
+          <li class="list-inside list-disc">
+            Adaptive
+          </li>
+          <li class="list-inside list-disc">
+            Discipline
+          </li>
+          <li class="list-inside list-disc">
+            Fast learner
+          </li>
+          <li class="list-inside list-disc">
+            Problem solver
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-semibold text-white">Certifications</h2>
+        <ul class="lg:whitespace-nowrap text-sm lg:text-base">
+          <li class="list-inside list-disc">
+            BNSP - Junior Assitant Programmer (2024)
+          </li>
+          <li class="list-inside list-disc">
+            Dicoding - Back-End Developer Expert Javascript (2023)
+          </li>
+          <li class="list-inside list-disc">
+            Dicoding - Front-End Web Developer Expert (2023)
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-semibold text-white">Educations</h2>
+        <ul class="lg:whitespace-nowrap text-sm lg:text-base">
+          <li class="list-inside list-disc">
+            Universitas Siber Asia - PJJ Informatika (2024 - present)
+          </li>
+          <li class="list-inside list-disc">
+            SMK Negeri 8 Semarang - PPLG (2021 - 2024)
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <!-- <script type="module" src="/src/main.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("mobile-nav-toggle");
+      const nav = document.getElementById("mobile-nav");
+      const container = document.getElementById("mobile-nav-container");
+
+      toggleBtn.addEventListener("click", function () {
+        const isHidden = nav.classList.contains("opacity-0");
+        nav.classList.toggle("opacity-0", !isHidden);
+        nav.classList.toggle("pointer-events-none", !isHidden);
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!container.contains(e.target)) {
+          nav.classList.add("opacity-0", "pointer-events-none");
+        }
+      });
+
+      const navLinks = document.querySelectorAll(".mobile-nav-link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          const isHidden = nav.classList.contains("opacity-0");
+          nav.classList.toggle("opacity-0", !isHidden);
+          nav.classList.toggle("pointer-events-none", !isHidden);
+        });
+      });
+    });
+
+  </script>
+</body>
+
+</html>
